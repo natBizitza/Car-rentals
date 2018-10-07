@@ -10,8 +10,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string name, licenseAnswer;
-            int age;
+            string name, licenseAnswer, confirmAnswer;
+            int age, city, totalTime, weeks, days, price;
             bool drivLicense = false;
 
             //name of the client
@@ -48,6 +48,73 @@ namespace ConsoleApp1
                 Console.WriteLine("Where do you want to pick up a car?");
             }
 
+            // chose the city where to pick up the car
+
+            Console.WriteLine("Where would you like to pick up the car?");
+            Console.WriteLine("1- Bilbao");
+            Console.WriteLine("2- Madrid");
+            Console.WriteLine("3- Barcelona");
+            Console.WriteLine("4- Santander");
+
+            city = Convert.ToInt32(Console.ReadLine());
+
+
+            // 
+            Console.Write("You will pick up your car in ");
+            switch (city)
+            {
+                case 1:
+                    Console.WriteLine("Bilbao");
+                    break;
+                case 2:
+                    Console.WriteLine("Madrid");
+                    break;
+                case 3:
+                    Console.WriteLine("Barcelona");
+                    break;
+                case 4:
+                    Console.WriteLine("Santander");
+                    break;
+            }
+
+            Console.Write("For how many days would you like to rent it? ");
+
+            totalTime = Convert.ToInt32(Console.ReadLine());
+
+            weeks = totalTime / 7;
+            days = totalTime % 7;
+            price = totalTime * 10 - 10 * weeks;
+
+            Console.WriteLine("\nClient " + name + " " + age + " years old with driver license. \n");
+            Console.WriteLine("You rent the car for " + weeks + " weeks and " + days + " days for " + price + " euros. Pick it up in ");
+
+            switch (city)
+            {
+                case 1:
+                    Console.WriteLine("Bilbao");
+                    break;
+                case 2:
+                    Console.WriteLine("Madrid");
+                    break;
+                case 3:
+                    Console.WriteLine("Barcelona");
+                    break;
+                case 4:
+                    Console.WriteLine("Santander");
+                    break;
+            }
+
+            Console.WriteLine("\nIs this information correct (Y/N)?");
+            confirmAnswer = Console.ReadLine();
+
+            if (confirmAnswer.ToLower() == "y")
+               {
+                Console.WriteLine("Congratulations! Don´t forget your confirmation ticket.");
+               }
+            else
+                {
+                    Console.WriteLine("We are sorry. You have to start again.");
+                }
 
 
             Console.ReadLine();
